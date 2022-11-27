@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
+<body>
+	<main class="main-content">
+		<section class="product-area shopping-cart-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="shopping-cart-wrap">
+							<div class="cart-table table-responsive">
+								<table class="table">
+									<thead>
+										<tr>
+											<th scope="col" class="indecor-product-remove">Xóa</th>
+											<th scope="col" class="indecor-product-thumbnail">Ảnh</th>
+											<th scope="col" class="indecor-product-name">Sản Phẩm</th>
+											<th scope="col" class="indecor-product-price">Giá</th>
+											<th scope="col" class="indecor-product-quantity">Số Lượng</th>
+											<th scope="col" class="indecor-product-subtotal">Tổng Tiền</th>
+										</tr>
+									</thead>
+									<tbody>
+                                         <!--xóa-->
+										<tr scope="row" ng-repeat="item in cart.items">
+											<td class="indecor-product-remove">
+												<a href="javascript:(0);" ng-click="cart.remove(item.id)">
+													<i class="fa fa-trash"></i>
+												</a>
+											</td>
+
+                                          <!--ảnh-->
+
+											<td class="indecor-product-thumbnail">
+												<img class="w-50" src="assets/images/{{item.image}}">
+											</td>
+
+										 <!--Tên-->
+
+											 <td class="indecor-product-name">
+												 <h4 class="title">{{item.name}}</h4>
+											 </td>
+
+										 <!--Giá-->
+
+											 <td class="indecor-product-price">
+												 <span class="price">${{item.price | number:2}}</span>
+											 </td>
+
+										 <!--Số Lượng-->
+
+											 <td class="indecor-product-quantity">
+												 <input type="number" pattern="[0-9]*" id="spinner" name="value" value="1" min="1" max="200"
+														step="1" ng-change="cart.saveToLocalStorage()" ng-model="item.qty">
+											 </td>
+
+										 <!--Tiền-->
+											 <td class="indecor-product-subtotal">
+												 <span class="price">${{item.qty*item.price | number:2}}</span>
+											 </td>
+										 </tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-lg-7 col-12">
+									<div class="coupon-all">
+										<div class="coupon">
+											<a class="button" href="/">Mua Thêm</a>
+											<a class="button" href="javascript:(0);" ng-click="cart.clear()">Xóa Tất Cả</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 col-lg-5 col-12">
+									<div class="cart-page-total">
+										<h3>Tính Tiền</h3>
+										<ul>
+											<li>
+												Thành Tiền
+												<span class="money">${{cart.amount | number : 2}}</span>
+											</li>
+											<li>
+												Tổng Cộng
+												<span class="money">${{cart.amount | number : 2}}</span>
+											</li>
+										</ul>
+										<a class="proceed-to-checkout-btn" th:href="@{/cart/checkout}">Mua Hàng</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(main)">
+<head>
+<base href="/">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="assets/img/icon.ico" type="image/x-icon" />
+<title>Rose</title>
+<link th:href="@{assets/css/style.css}" rel="stylesheet" />
+<link th:href="@{assets/css/footer.css}" rel="stylesheet" />
+
+</head>
+<body ng-app="shopping-app" ng-controller="shopping-ctrl">
+	<div class="wrapper">
+		<div class="preloader-wrap">
+			<div class="preloader">
+				<span class="dot"></span>
+				<div class="dots">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+		</div>
+		<main class="main-content">
+			<div th:replace="/layout/_menu.html"></div>
+			<div th:replace="${main}"></div>
+		</main>
+	</div>
+
+
+<!--	                      FOOTER-->
+		<footer>
+			<div class="row justify-content-around mb-0 pt-5 mx-4">
+				<div class="col-xl-2 col-md-4 order-xl-1 order-4 mr-xl-0 my-auto">
+					<ul class="list-unstyled mt-md-3 mt-5">
+						<li>Social Media</li>
+						    <li class="social">
+							    <span>
+								    <i class="fa fa-facebook" aria-hidden="true"></i>
+							    </span>
+							    <span>
+								    <i class="fa fa-instagram" aria-hidden="true"></i>
+							    </span>
+							    <span>
+								    <i class="fa fa-twitter" aria-hidden="true"></i>
+								</span> </li></ul><ul class="list-unstyled my-xl-4 my-md-3">
+					        <li>Copyright</li>
+					    <li>&#9400; Nutrition 2019</li>
+				    </ul>
+				</div>
+				<div class="col-xl-2 col-md-3 pt-4 order-1">
+					<ul class="list-unstyled"><li class="mt-md-0 mt-4">Our Solution</li>
+						<li>Intergrated Security </li><li>Core Features</li><li>Product Features</li>
+						<li>Pricing</li>
+					</ul>
+				</div>
+				<div class="col-xl-auto col-md-6 col-12  pt-4 my-sm-0 order-6  ">
+					<div class="form-group "><label for="email" class="mb-3">
+						<b>Subscribe to our newsletter and Get 10% off</b>
+					</label>
+						<input type="email" class="form-control form-control-lg" placeholder="Enter email" id="email">
+					</div>
+					<button type="button" class="btnx btn btn-primary btn-lg btn-block my-2 Subscribe mt-4 mb-3">Subscribe</button>
+				</div>
+			</div>
+			<div class="row justify-content-center px-3 py-3 pt-5">
+				<div class="col text-center">
+					<p class="mb-0">*These statement have not evaluated by the Food and Drug Addministrations.</p>
+					<p>This product is not intented to diagonse,treat,cure, or prevent any disease.</p>
+				</div></div>
+		</footer>
+
+
+
+
+
+
+
+	<div id="scroll-to-top" class="scroll-to-top">
+		<span class="fa fa-angle-double-up"></span>
+	</div>
+
+	<aside class="off-canvas-wrapper">
+		<div class="off-canvas-inner">
+			<div class="off-canvas-overlay"></div>
+			<div class="off-canvas-content">
+				<div class="off-canvas-header">
+					<div class="close-action">
+						<button class="btn-menu-close">
+							menu <i class="fa fa-chevron-left"></i>
+						</button>
+					</div>
+				</div>
+
+				<div class="off-canvas-item">
+					<div class="res-mobile-menu menu-active-one"></div>
+				</div>
+			</div>
+		</div>
+	</aside>
+
+	<script src="assets/js/jquery-3.6.0.min.js"></script>
+	<script src="assets/js/modernizr.min.js"></script>
+	<script src="assets/js/jquery-migrate.js"></script>
+	<script src="assets/js/jquery.slicknav.min.js"></script>
+    <script src="assets/js/sweetalert2.all.min.js"></script>
+	<script src="assets/js/jquery-zoom.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/headroom.min.js"></script>
+	<script src="assets/js/swiper.min.js"></script>
+	<script src="assets/js/fancybox.min.js"></script>
+	<script src="assets/js/custom.js"></script>
+	<script src="assets/js/angular.min.js"></script>
+	<script src="assets/js/main.js"></script>
+</body>
+</html>

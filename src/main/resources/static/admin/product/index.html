@@ -1,0 +1,20 @@
+<div class="page-content-wrapper">
+	<div class="container-fluid">
+		<nav>
+			<div class="nav nav-tabs" id="nav-tab" role="tablist">
+				<a href="javascript:(0);" class="nav-link" data-toggle="tab" data-target="#edit" type="button"
+					role="tab" aria-selected="false">Form</a>
+				<a href="javascript:(0);" class="nav-link active" data-toggle="tab" data-target="#list" type="button"
+					role="tab" aria-selected="true">Danh Sách</a>
+			</div>
+		</nav>
+		<div class="tab-content" id="nav-tabContent">
+			<div class="tab-pane fade" id="edit" role="tabpanel">
+				<div ng-include="'/admin/product/_form.html'"></div>
+			</div>
+			<div class="tab-pane fade show active" id="list" role="tabpanel">
+				<div ng-include="'/admin/product/_table.html'"></div>
+			</div>
+		</div>
+	</div>
+</div>

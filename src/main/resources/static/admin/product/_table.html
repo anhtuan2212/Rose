@@ -1,0 +1,40 @@
+<div class="row mx-0 bg-white" ng-if="items">
+	<div class="col-12 py-3">
+		<table id="datatable-buttons" class="table table-collapse table-bordered dt-responsive">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Tên Sản Phẩm</th>
+					<th>Giá</th>
+					<th>Ngày Tạo</th>
+					<th>Ảnh</th>
+					<th>Thể Loại</th>
+					<th>Tình Trạng</th>
+					<th>Hành Động</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in items">
+					<td class="align-center">{{item.id}}</td>
+					<td class="align-center w-25">{{item.name}}</td>
+					<td class="align-center">$ {{item.price | number:2}}</td>
+					<td class="align-center">{{item.createDate | date:'dd/MM/yyyy'}}</td>
+					<td class="align-center">{{item.image}}</td>
+					<td class="align-center">{{item.category.name}}</td>
+					<td class="align-center">{{item.available?'Còn Hàng':'Hết Hàng'}}</td>
+					<td class="align-center">
+						<div class="btn-group btn-group-xs">
+							<button ng-click="edit(item)" class="btn btn-icon">
+								<i class="fa fa-xs fa-pen"></i>
+							</button>
+							<button ng-click="delete(item)" class="btn btn-danger">
+								<i class="fa fa-xs fa-times"></i>
+							</button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<script src="/assetss/js/init.js"></script>

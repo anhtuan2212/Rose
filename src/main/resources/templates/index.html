@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
+<body>
+	<main>
+		<div class="container">
+			<section class="product-area">
+				<div class="container product-pb" data-padding-bottom="25">
+					<div class="row">
+						<div class="col-12">
+							<div class="row">
+								<div class="col-md-3" th:each="p:${items}">
+									<div class="product-item">
+										<div class="inner-content">
+											<div class="product-thumb">
+												<a th:href="@{|/product/detail/${p.id}|}">
+													<img class="product-item m-auto d-block" th:src="@{|/assets/images/${p.image}|}"
+														th:title="${p.name}">
+												</a>
+
+											</div>
+											<div class="product-desc">
+												<div class="product-info">
+													<h4 class="title">
+														<a th:href="@{|/product/detail/${p.id}|}">[(${p.name})]</a>
+													</h4>
+													<div class="prices">
+														<span class="price">$[[${#numbers.formatDecimal(p.price,0,'COMMA',2,'POINT')}]]</span>
+													</div>
+														<a class="btn btn-light" th:attr="ng-click=@{|cart.add(${p.id})|}">Thêm vào giỏ</a>
+												</div>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+</body>
+</html>

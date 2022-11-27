@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{::main})}">
+<body>
+	<main class="main-content" th:object="${item}">
+		<section class="product-area product-single-area">
+			<div class="container pt-60 pb-0">
+				<div class="row">
+					<div class="col-12">
+						<div class="product-single-item" data-margin-bottom="63">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="product-thumb">
+										<div class="zoom zoom-hover">
+											<a class="lightbox-image" data-fancybox="gallery" th:src="@{|/assets/images/*{image}|}">
+												<img class="m-auto d-block my-5" th:src="@{|/assets/images/*{image}|}">
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="product-single-info">
+										<h4 class="title">[[*{name}]]</h4>
+										<div class="prices">
+											<span class="price">$[[*{#numbers.formatDecimal(price,0,'COMMA',2,'POINT')}]]</span>
+										</div>
+										<div class="prices">Thể Loại: [[*{category.name}]]</div>
+										<div class="rating-box-wrap">
+											<div class="rating-box">
+												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+													class="fa fa-star"></i> <i class="fa fa-star"></i>
+											</div>
+										</div>
+
+										<div class="product-action-simple">
+											<div class="payment-button">
+												<a th:attr="ng-click=@{|cart.add(${id})|}" th:href="@{/cart/view}" class="btn-payment">Thêm giỏ hàng</a>
+											</div>
+											<div class="social-sharing">
+												<span>Chia Sẻ:</span>
+												<div class="social-icons">
+													<a href="javascript:(0);">
+														<i class="fa fa-facebook"></i>
+													</a>
+													<a href="javascript:(0);">
+														<i class="fa fa-twitter"></i>
+													</a>
+													<a href="javascript:(0);">
+														<i class="fa fa-pinterest"></i>
+													</a>
+													<a href="javascript:(0);">
+														<i class="fa fa-google-plus"></i>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		<section class="product-area product-new-arrivals-area product-related-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-7 m-auto">
+						<div class="section-title text-center">
+							<h2 class="title">Sản phẩm tương tự</h2>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="swiper-container swiper-slide-gap product-slider-container">
+							<div class="swiper-wrapper">
+								<div class="swiper-slide" th:each="p:*{category.products}">
+									<div class="product-item">
+										<div class="inner-content">
+											<div class="product-thumb">
+												<a th:href="@{|/product/detail/${p.id}|}">
+													<img class="product-item m-auto d-block" th:src="@{|/assets/images/${p.image}|}">
+												</a>
+											</div>
+											<div class="product-desc">
+												<div class="product-info">
+													<h4 class="title">
+														<a th:href="@{|/product/detail/${p.id}|}">[[${p.name}]]</a>
+													</h4>
+													<div class="prices">
+														<span class="price">$[[${#numbers.formatDecimal(p.price,0,'COMMA',2,'POINT')}]]</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-button-prev">
+								<i class="zmdi zmdi-chevron-left"></i>
+							</div>
+							<div class="swiper-button-next">
+								<i class="zmdi zmdi-chevron-right"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+</html>
